@@ -1,0 +1,20 @@
+# Binary Search for an array seq, search element is v, from positions l to v
+def bsearch(seq,v,l,r):
+#search for v in seq[l:r], seq is sorted
+	if r - l == 0:
+		return(False)
+	mid = (l + r) // 2 #integer division
+	if v == seq[mid]:
+		return (True)
+	if v < seq[mid]:
+		return (bsearch(seq,v,l,mid))
+	else:
+		return (bsearch(seq,v,mid+1,r))
+		
+seq = [1,2,3,4,5,6,7,8,9,10]
+found  = bsearch(seq,5,0,10)
+print(found)
+
+seq = [1,2,3,4,5,6,7]
+foudn = bsearch(seq,10,0,7)
+print(foudn)
