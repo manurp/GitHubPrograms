@@ -4,6 +4,14 @@ def descending(l):
         if l[i]>l[i-1]:
             return(False)
     return(True)
+#find if the list is in descending order using built in functions
+def descend(l):
+    l1=l[:]
+    l1.sort()
+    l1.reverse()
+    if l1==l:
+        return(True)
+    return(False)
         
 def alternating(l):
     l1=l[::2]
