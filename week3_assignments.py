@@ -16,16 +16,23 @@ def descend(l):
 def alternating(l):
     l1=l[::2]
     l2=l[1::2]
-    if len(l)<2:
-        return(True)   
-    if l1[0]>l2[0]:
-        (l1,l2)=(l2,l1)
     x=len(l1)
     y=len(l2)
-    for i in range(1,x):
-        if l2[i]<=l1[i] or l2[i]<=l1[i-1]:
-            return(False)
-    if l2[y-1]<=l1[x-1]:
+    if len(l)<2:
+        return(True)   
+    if l1[0]<l2[0]:
+        for i in range(0,y-1):
+            if l2[i]<=l1[i] or l2[i]<=l1[i+1]:
+                return(False)
+            if l2[y-1]<=l1[x-1]:
+                return(False)
+    elif l1[0]>l2[0]:
+        for i in range(0,y-1):
+            if l2[i]>=l1[i] or l2[i]>=l1[i+1]:
+                return(False)
+            if l2[y-1]>=l1[x-1]:
+                return(False)
+    else:
         return(False)
     return(True)
 
