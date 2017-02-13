@@ -41,7 +41,7 @@ def matmult(m1,m2):
     for i in range(len(m1)):
         x=0
         m=[]
-        while x<len(m1):
+        while x<len(m2[0]):
             ans=0
             for j in range(len(m1[0])):
                 ans+=m1[i][j]*m2[j][x]
