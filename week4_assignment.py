@@ -73,12 +73,14 @@ def multpoly(p1,p2):
 
 def resdict(d):
     d1={}
+    
     if len(d)<=1:
         for k in d.keys():
             return(list(d[k]))
-    elif len(d)==2:
-        return(addpoly(d[0],d[1]))
-    elif len(d)==3:
-        d1[0]=addpoly(d[0],d[1])
-        d1[1]=d[2]
+    
+    else:
+        j=0
+        for i in range(0,len(d),2):
+            d1[j]=addpoly(d[i],d[i+1])
+            j=j+1
         return(resdict(d1))
